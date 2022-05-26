@@ -1,0 +1,58 @@
+[tool.poetry]
+name = "python-skeleton"
+version = "0.1.0"
+description = ""
+authors = ["vicalloy <zbirder@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.dev-dependencies]
+pre-commit = "^2.17.0"
+pytest = "^7.1.1"
+pytest-asyncio = "^0.18.3"
+pytest-cov = "^3.0.0"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+include = '\.pyi?$'
+target-version = ['py310']
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.mypy]
+files = ["castle", ]
+ignore_missing_imports = true
+python_version = '3.10'
+
+[[tool.poetry.source]]
+name = "default"
+url = "https://pypi.python.org/simple/"
+
+[[tool.poetry.source]]
+name = "aliyun"
+url = "https://mirrors.aliyun.com/pypi/simple/"
+
+[tool.isort]
+profile = "black"
+known_first_party = ["python_skeleton"]
+skip_gitignore = true
+
+
+
